@@ -168,16 +168,20 @@
 
     /* ── PDF SECTION STYLES ── */
     .pdf-section-wrap { border-top: 1px solid #e0ddd7; margin-top: 3rem; }
-    .pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: #e0ddd7; padding: 0 3rem 3rem; }
-    .pdf-item { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.2rem; background: var(--white); text-decoration: none; color: var(--black); transition: background 0.2s; }
-    .pdf-item:hover { background: #faf9f6; }
+    .pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; padding: 0 3rem 3rem; }
+    .pdf-item { display: flex; flex-direction: column; gap: 0; text-decoration: none; color: var(--black); background: var(--white); border: 1px solid #e0ddd7; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; overflow: hidden; }
+    .pdf-item:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(10,10,10,0.08); }
     .pdf-item:hover .pdf-action { color: var(--black); }
-    .pdf-icon { width: 36px; height: 36px; background: rgba(200,184,154,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 4px; }
-    .pdf-icon i { font-size: 18px; color: var(--accent); }
-    .pdf-meta { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
+    .pdf-item:hover .pdf-icon { background: var(--accent); }
+    .pdf-item:hover .pdf-icon i { color: var(--black); }
+    .pdf-card-top { display: flex; align-items: center; gap: 0.9rem; padding: 1.3rem 1.2rem 1rem; }
+    .pdf-icon { width: 38px; height: 38px; background: rgba(200,184,154,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 4px; transition: background 0.25s; }
+    .pdf-icon i { font-size: 18px; color: var(--accent); transition: color 0.25s; }
     .pdf-num { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
-    .pdf-title { font-size: 0.82rem; font-weight: 500; color: var(--black); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .pdf-action { font-size: 0.68rem; color: #aaa; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; }
+    .pdf-card-body { padding: 0 1.2rem 1.1rem; }
+    .pdf-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--black); line-height: 1.3; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+    .pdf-card-bottom { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.2rem; border-top: 1px solid #e0ddd7; margin-top: auto; }
+    .pdf-action { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
     .pdf-action i { font-size: 12px; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -207,7 +211,7 @@
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; }
       .footer-bottom { flex-direction: column; gap: 0.6rem; text-align: center; padding: 1.2rem 1.5rem; }
       .footer-bottom-right { flex-wrap: wrap; justify-content: center; }
-      .pdf-grid { padding: 0 1.5rem 2rem; grid-template-columns: 1fr; }
+      .pdf-grid { padding: 0 1.5rem 2rem; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
       .pdf-section-wrap > div:first-child { padding: 3rem 1.5rem 1.5rem; }
     }
     @media (max-width: 480px) {
@@ -219,6 +223,7 @@
       .gallery-item.wide { grid-column: span 1; aspect-ratio: 4/3; }
       .milestones-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
+      .pdf-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -480,6 +485,11 @@
     <div class="gallery-item tall reveal" onclick="openLightbox(this)"><img src="15.jpeg" alt="Published Work 15"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XV</div></div></div></div>
     <div class="gallery-item square reveal" onclick="openLightbox(this)"><img src="16.jpeg" alt="Published Work 16"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVI</div></div></div></div>
     <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="17.jpeg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+        <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="reason.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="go.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="tight.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="ancestral.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+
   </div>
 
   <!-- ═══════════════════════════════════════════════════
@@ -491,128 +501,7 @@
       <h3 class="section-title reveal">Journal Articles &amp; <em>Academic Papers.</em></h3>
       <p style="font-size:0.88rem;font-weight:300;color:#666;max-width:520px;line-height:1.8;margin-bottom:0;" class="reveal">A selection of Dr. Azunwo's peer-reviewed contributions across literary criticism, African theatre theory, feminist film studies, and performance studies — published in national and international scholarly journals. Click any entry to open the full paper.</p>
     </div>
-    <div class="pdf-grid">
-      <a class="pdf-item reveal" href="pdf1.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 01</span><span class="pdf-title">Journal Article 1</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf2.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 02</span><span class="pdf-title">Journal Article 2</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf3.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 03</span><span class="pdf-title">Journal Article 3</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf4.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 04</span><span class="pdf-title">Journal Article 4</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf5.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 05</span><span class="pdf-title">Journal Article 5</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf6.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 06</span><span class="pdf-title">Journal Article 6</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf7.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 07</span><span class="pdf-title">Journal Article 7</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf8.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 08</span><span class="pdf-title">Journal Article 8</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf9.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 09</span><span class="pdf-title">Journal Article 9</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf10.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 10</span><span class="pdf-title">Journal Article 10</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf11.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 11</span><span class="pdf-title">Journal Article 11</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf12.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 12</span><span class="pdf-title">Journal Article 12</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf13.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 13</span><span class="pdf-title">Journal Article 13</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf14.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 14</span><span class="pdf-title">Journal Article 14</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf15.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 15</span><span class="pdf-title">Journal Article 15</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf16.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 16</span><span class="pdf-title">Journal Article 16</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf17.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 17</span><span class="pdf-title">Journal Article 17</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf18.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 18</span><span class="pdf-title">Journal Article 18</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf19.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 19</span><span class="pdf-title">Journal Article 19</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf20.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 20</span><span class="pdf-title">Journal Article 20</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf21.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 21</span><span class="pdf-title">Journal Article 21</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf22.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 22</span><span class="pdf-title">Journal Article 22</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf23.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 23</span><span class="pdf-title">Journal Article 23</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf24.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 24</span><span class="pdf-title">Journal Article 24</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf25.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 25</span><span class="pdf-title">Journal Article 25</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf26.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 26</span><span class="pdf-title">Journal Article 26</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf27.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 27</span><span class="pdf-title">Journal Article 27</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf28.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 28</span><span class="pdf-title">Journal Article 28</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf29.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 29</span><span class="pdf-title">Journal Article 29</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf30.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 30</span><span class="pdf-title">Journal Article 30</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf31.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 31</span><span class="pdf-title">Journal Article 31</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf32.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 32</span><span class="pdf-title">Journal Article 32</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf33.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 33</span><span class="pdf-title">Journal Article 33</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf34.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 34</span><span class="pdf-title">Journal Article 34</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf35.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 35</span><span class="pdf-title">Journal Article 35</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf36.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 36</span><span class="pdf-title">Journal Article 36</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf37.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 37</span><span class="pdf-title">Journal Article 37</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf38.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 38</span><span class="pdf-title">Journal Article 38</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf39.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 39</span><span class="pdf-title">Journal Article 39</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf40.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 40</span><span class="pdf-title">Journal Article 40</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf41.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 41</span><span class="pdf-title">Journal Article 41</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf42.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 42</span><span class="pdf-title">Journal Article 42</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf43.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 43</span><span class="pdf-title">Journal Article 43</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf44.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 44</span><span class="pdf-title">Journal Article 44</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf45.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 45</span><span class="pdf-title">Journal Article 45</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf46.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 46</span><span class="pdf-title">Journal Article 46</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf47.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 47</span><span class="pdf-title">Journal Article 47</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf48.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 48</span><span class="pdf-title">Journal Article 48</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf49.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 49</span><span class="pdf-title">Journal Article 49</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf50.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 50</span><span class="pdf-title">Journal Article 50</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf51.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 51</span><span class="pdf-title">Journal Article 51</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf52.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 52</span><span class="pdf-title">Journal Article 52</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf53.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 53</span><span class="pdf-title">Journal Article 53</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf54.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 54</span><span class="pdf-title">Journal Article 54</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf55.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 55</span><span class="pdf-title">Journal Article 55</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf56.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 56</span><span class="pdf-title">Journal Article 56</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf57.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 57</span><span class="pdf-title">Journal Article 57</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf58.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 58</span><span class="pdf-title">Journal Article 58</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf59.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 59</span><span class="pdf-title">Journal Article 59</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf60.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 60</span><span class="pdf-title">Journal Article 60</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf61.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 61</span><span class="pdf-title">Journal Article 61</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf62.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 62</span><span class="pdf-title">Journal Article 62</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf63.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 63</span><span class="pdf-title">Journal Article 63</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf64.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 64</span><span class="pdf-title">Journal Article 64</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf65.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 65</span><span class="pdf-title">Journal Article 65</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf66.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 66</span><span class="pdf-title">Journal Article 66</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf67.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 67</span><span class="pdf-title">Journal Article 67</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf68.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 68</span><span class="pdf-title">Journal Article 68</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf69.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 69</span><span class="pdf-title">Journal Article 69</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf70.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 70</span><span class="pdf-title">Journal Article 70</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf71.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 71</span><span class="pdf-title">Journal Article 71</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf72.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 72</span><span class="pdf-title">Journal Article 72</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf73.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 73</span><span class="pdf-title">Journal Article 73</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf74.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 74</span><span class="pdf-title">Journal Article 74</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf75.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 75</span><span class="pdf-title">Journal Article 75</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf76.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 76</span><span class="pdf-title">Journal Article 76</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf77.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 77</span><span class="pdf-title">Journal Article 77</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf78.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 78</span><span class="pdf-title">Journal Article 78</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf79.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 79</span><span class="pdf-title">Journal Article 79</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf80.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 80</span><span class="pdf-title">Journal Article 80</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf81.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 81</span><span class="pdf-title">Journal Article 81</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf82.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 82</span><span class="pdf-title">Journal Article 82</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf83.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 83</span><span class="pdf-title">Journal Article 83</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf84.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 84</span><span class="pdf-title">Journal Article 84</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf85.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 85</span><span class="pdf-title">Journal Article 85</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf86.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 86</span><span class="pdf-title">Journal Article 86</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf87.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 87</span><span class="pdf-title">Journal Article 87</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf88.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 88</span><span class="pdf-title">Journal Article 88</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf89.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 89</span><span class="pdf-title">Journal Article 89</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf90.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 90</span><span class="pdf-title">Journal Article 90</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf91.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 91</span><span class="pdf-title">Journal Article 91</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf92.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 92</span><span class="pdf-title">Journal Article 92</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf93.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 93</span><span class="pdf-title">Journal Article 93</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-       <a class="pdf-item reveal" href="pdf94.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 94</span><span class="pdf-title">Journal Article 94</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf95.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 95</span><span class="pdf-title">Journal Article 95</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf96.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 96</span><span class="pdf-title">Journal Article 96</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf97.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 97</span><span class="pdf-title">Journal Article 97</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf98.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 98</span><span class="pdf-title">Journal Article 98</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf99.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 99</span><span class="pdf-title">Journal Article 99</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf100.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 100</span><span class="pdf-title">Journal Article 100</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf101.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 101</span><span class="pdf-title">Journal Article 101</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf102.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 102</span><span class="pdf-title">Journal Article 102</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf103.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 103</span><span class="pdf-title">Journal Article 103</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf104.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 104</span><span class="pdf-title">Journal Article 104</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf105.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 105</span><span class="pdf-title">Journal Article 105</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf106.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 106</span><span class="pdf-title">Journal Article 106</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf107.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 107</span><span class="pdf-title">Journal Article 107</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf108.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 108</span><span class="pdf-title">Journal Article 108</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf109.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 109</span><span class="pdf-title">Journal Article 109</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf110.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 110</span><span class="pdf-title">Journal Article 110</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf111.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 111</span><span class="pdf-title">Journal Article 111</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf112.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 112</span><span class="pdf-title">Journal Article 112</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf113.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 113</span><span class="pdf-title">Journal Article 113</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf114.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 114</span><span class="pdf-title">Journal Article 114</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf115.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 115</span><span class="pdf-title">Journal Article 115</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf116.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 116</span><span class="pdf-title">Journal Article 116</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf117.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 117</span><span class="pdf-title">Journal Article 117</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf118.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 118</span><span class="pdf-title">Journal Article 118</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf119.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 119</span><span class="pdf-title">Journal Article 119</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-      <a class="pdf-item reveal" href="pdf120.pdf" target="_blank" rel="noopener"><div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div><div class="pdf-meta"><span class="pdf-num">Article 120</span><span class="pdf-title">Journal Article 120</span><span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span></div></a>
-    </div>
+    <div class="pdf-grid" id="pdfGrid"></div>
   </div>
   <!-- ═══════════════════════════════════════════════════ -->
 
@@ -669,6 +558,200 @@
 </div>
 
 <script>
+  // Build the PDF article cards. Titles longer than 20 characters are
+  // truncated with an ellipsis (both visually via CSS text-overflow and
+  // in the DOM string itself, so hover/title tooltips and any text
+  // extraction also see the shortened form).
+  const PDF_TITLE_LIMIT = 20;
+  function truncateTitle(title) {
+    if (title.length > PDF_TITLE_LIMIT) {
+      return title.slice(0, PDF_TITLE_LIMIT).trimEnd() + '…';
+    }
+    return title;
+  }
+
+  // Edit the "title" value on each line below to set the real article title.
+  // Titles longer than 20 characters will automatically truncate with "…"
+  // (full title still shows on hover via the tooltip).
+  const pdfArticles = [
+    { file: 'pdf1.pdf',   num: '01',  title: 'Elegbakna Journal of Theatre and Film Studies Vol. 6' },
+    { file: 'pdf2.pdf',   num: '02',  title: 'Journal Article 2PAINTING WITH LIGHTS: THE ART OF CREATIVE STORYTELLING THROUGH CINEMATOGRAPHY' },
+    { file: 'pdf3.pdf',   num: '03',  title: 'TOURISM POTENTIALS OF THE OGBIA ODEMIMOM AND OBURUMADU SOCIAL MASQUERADES' },
+    { file: 'pdf4.pdf',   num: '04',  title: 'FROM WARTIME ALLIES TO PEACETIME RIV ALS: NATIONAL INTERESTS AND THE NIGERIA–CAMEROON CONFLICT OVER BAKASSI' },
+    { file: 'pdf5.pdf',   num: '05',  title: 'ENVIRONMENTAL STORYTELLING: A PRAGMATIC ANALYSIS OF ECOLOGICAL MESSAGES IN CHILDRENS LITERATURE' },
+    { file: 'pdf6.pdf',   num: '06',  title: 'TRADITIONAL YORÙBÁ CRIME CONTROL MECHANISM IN ANÍKÚLÁPÓ' },
+    { file: 'pdf7.pdf',   num: '07',  title: 'THE EVOLUTION OF WOMENS ECONOMIC ROLES IN NIGERIA: AHISTORICAL ANALYSIS FROM PRECOLONIAL TO MODERN TIMES' },
+    { file: 'pdf8.pdf',   num: '08',  title: 'FILM AND THE COPYRIGHT ACT OF NIGERIA: AN EV ALUATION OF' },
+    { file: 'pdf9.pdf',   num: '09',  title: 'REFRAMING WOMANHOOD IN CONTEMPORARY NIGERIAN CINEMA:' },
+    { file: 'pdf10.pdf',  num: '10',  title: 'PUBLICITY MANAGEMENT IN SELECTED CINEMA HOUSES IN LAGOS AND' },
+    { file: 'pdf11.pdf',  num: '11',  title: 'THE LIBERIAN CIVIL WAR (1989–2003): CAUSES, DYNAMICS,' },
+    { file: 'pdf12.pdf',  num: '12',  title: 'INTEGRATING WORK-BASED LEARNING INTO ADULT EDUCATION' },
+    { file: 'pdf13.pdf',  num: '13',  title: 'A DISCOURSE ON THE OGBIA PEOPLE AND THE RELEV ANCE OF THEIR' },
+    { file: 'pdf14.pdf',  num: '14',  title: 'MUSIC, SACRED PRACTICE, AND SOCIAL MEANING IN THE IGOGO' },
+    { file: 'pdf15.pdf',  num: '15',  title: 'IMPACT OF CUSTOMS ANTI-SMUGGLING OPERATIONS AT SEME BORDER,' },
+    { file: 'pdf16.pdf',  num: '16',  title: 'JCORRECTIONAL PROGRAMME FOR INMATES AND REFORMATORY' },
+    { file: 'pdf17.pdf',  num: '17',  title: 'A CLOSEUP ON GENDER ISSUES IN EDDY YOUNGS KASANOVA' },
+    { file: 'pdf18.pdf',  num: '18',  title: 'STRATEGIC INTERACTION AND IMPERIAL EXPANSION: A GAME-' },
+    { file: 'pdf19.pdf',  num: '19',  title: 'THE GENZEE BADIE AND AFRO-POP MUSIC PERFORMANCE AGAINST' },
+    { file: 'pdf20.pdf',  num: '20',  title: 'GENDER POLITICS IN MARIAMA BAS SO LONG A LETTER' },
+    { file: 'pdf21.pdf',  num: '21',  title: 'ENHANCING THE TRIFOCAL SYNERGY OF ENGLISH, ICT, AND EDUCATION' },
+    { file: 'pdf22.pdf',  num: '22',  title: 'ADOPTION AND USE OF ARTIFICIAL INTELLIGENCE FOR JOURNALISM' },
+    { file: 'pdf23.pdf',  num: '23',  title: 'SEXUAL ABUSE AND FEMALE SUBJUGATION IN AMMA DARKOS FACELESS' },
+    { file: 'pdf24.pdf',  num: '24',  title: 'A LINGUISTIC-STYLISTIC EXAMINATION OF DISCOURSE ENACTMENT AND' },
+    { file: 'pdf25.pdf',  num: '25',  title: 'SYNTAX AS IDEOLOGY: THETA ROLE ASSIGNMENT AND OPPRESSION IN' },
+    { file: 'pdf26.pdf',  num: '26',  title: 'GHETTOS OF RESISTANCE: GANGSTERISM AS CULTURAL PROTEST IN' },
+    { file: 'pdf27.pdf',  num: '27',  title: 'CINEMATIC REIMAGING OF AFRICAN HEROINES: CONVERSATIONS WITH' },
+    { file: 'pdf28.pdf',  num: '28',  title: 'HUMANITARIAN IMPLICATION OF TERRORPRENEURSHIP: A CASE STUDY' },
+    { file: 'pdf29.pdf',  num: '29',  title: 'SAME STROKES FOR DIFFERENT FOLKS: LESSONS FOR THE LED IN' },
+    { file: 'pdf30.pdf',  num: '30',  title: 'UNLOCKING THE BENEFITS OF ARTIFICIAL INTELLIGENCE (AI) FOR' },
+    { file: 'pdf31.pdf',  num: '31',  title: 'Irony And Tension: A New Critical Reading Of Azunwos Rabbi' },
+    { file: 'pdf32.pdf',  num: '32',  title: 'Managing Radio for Development: An Analysis of Radio Bayelsa' },
+    { file: 'pdf33.pdf',  num: '33',  title: 'The Playwright As A Challenger of Bad Values in Society:' },
+    { file: 'pdf34.pdf',  num: '34',  title: 'A Contextual Reading of Justice In Ahmed Yerimas Hard Ground And Emenike' },
+    { file: 'pdf35.pdf',  num: '35',  title: 'The Commodification of Women In Nigerian Popular Music:' },
+    { file: 'pdf36.pdf',  num: '36',  title: 'Feminist Consciousness and Gender Negotiation in Nollywood: A Comparative Study' },
+    { file: 'pdf37.pdf',  num: '37',  title: 'Language Play and Comic Identity: Nigerian Pidgin in Jenifa Diary' },
+    { file: 'pdf38.pdf',  num: '38',  title: 'The Intersection of Gender and Power Dynamics in Emenike Azunwos Apogee' },
+    { file: 'pdf39.pdf',  num: '39',  title: 'An Analysis of Political Power Themes In Kemi Adetiba King of Boys' },
+    { file: 'pdf40.pdf',  num: '40',  title: 'The Theatre Production Fúnmiláyò Ransome Kútì: A critique of' },
+    { file: 'pdf41.pdf',  num: '41',  title: 'The Biographic and the Objective: A Reflection on the Historical and Metaphysical' },
+    { file: 'pdf42.pdf',  num: '42',  title: 'Political Portrayal of Women In Selected Nigerian Films:' },
+    { file: 'pdf43.pdf',  num: '43',  title: 'Digital Transformations in Nollywood: Exploring Production,' },
+    { file: 'pdf44.pdf',  num: '44',  title: 'Elements of Folkism in “Banuso” song by Olawale Ashimi' },
+    { file: 'pdf45.pdf',  num: '45',  title: 'Interrogating the Applicability of Henri Fayols Administrative Principles to the' },
+    { file: 'pdf46.pdf',  num: '46',  title: 'Semiotic Signs In Everyday Use For Communicative Purposes' },
+    { file: 'pdf47.pdf',  num: '47',  title: 'The Impact of Feasibility Study on Theatre-Entrepreneurship Development in Nigeria' },
+    { file: 'pdf48.pdf',  num: '48',  title: 'Advertising language in Nigeria: The Punch Newspaper Paradigm' },
+    { file: 'pdf49.pdf',  num: '49',  title: 'Assessing the Contributions of Creative Industries to Economic Growth in Nigeria' },
+    { file: 'pdf50.pdf',  num: '50',  title: 'Journal Article 50' },
+    { file: 'pdf51.pdf',  num: '51',  title: 'Journal Article 51' },
+    { file: 'pdf52.pdf',  num: '52',  title: 'Journal Article 52' },
+    { file: 'pdf53.pdf',  num: '53',  title: 'Journal Article 53' },
+    { file: 'pdf54.pdf',  num: '54',  title: ' Comrade and other poem' },
+    { file: 'pdf55.pdf',  num: '55',  title: 'Selective visibility' },
+    { file: 'pdf56.pdf',  num: '56',  title: 'Beyond the blitz' },
+    { file: 'pdf57.pdf',  num: '57',  title: 'Rnyinya ' },
+    { file: 'pdf58.pdf',  num: '58',  title: 'Broke Salvation' },
+    { file: 'pdf59.pdf',  num: '59',  title: 'Eco-Marx..' },
+    { file: 'pdf60.pdf',  num: '60',  title: 'Fraudulent practices' },
+    { file: 'pdf61.pdf',  num: '61',  title: 'Corruption and security' },
+    { file: 'pdf62.pdf',  num: '62',  title: 'Gendered pragma..' },
+    { file: 'pdf63.pdf',  num: '63',  title: 'Stage, sound and ..' },
+    { file: 'pdf64.pdf',  num: '64',  title: 'Resurgence of wood' },
+    { file: 'pdf65.pdf',  num: '65',  title: 'Gender, Gaze ..' },
+    { file: 'pdf66.pdf',  num: '66',  title: 'Tourist potential' },
+    { file: 'pdf67.pdf',  num: '67',  title: 'Journal Article 67' },
+    { file: 'pdf68.pdf',  num: '68',  title: 'Control, restriction.' },
+    { file: 'pdf69.pdf',  num: '69',  title: 'Pragmatic ....' },
+    { file: 'pdf70.pdf',  num: '70',  title: 'Towards a viable ... ' },
+    { file: 'pdf71.pdf',  num: '71',  title: 'Closed - class system ..' },
+    { file: 'pdf72.pdf',  num: '72',  title: 'Towards a viable ...' },
+    { file: 'pdf73.pdf',  num: '73',  title: 'closed-class ...' },
+    { file: 'pdf74.pdf',  num: '74',  title: 'Assessing film ... ' },
+    { file: 'pdf75.pdf',  num: '75',  title: 'The evolution of film ...' },
+    { file: 'pdf76.pdf',  num: '76',  title: 'semiotics in grammar' },
+    { file: 'pdf77.pdf',  num: '77',  title: 'Digital marketing practices ..' },
+    { file: 'pdf78.pdf',  num: '78',  title: 'A critical analysis ...' },
+    { file: 'pdf79.pdf',  num: '79',  title: 'Comradeship and other poems' },
+    { file: 'pdf80.pdf',  num: '80',  title: 'Selective visibility .. ' },
+    { file: 'pdf81.pdf',  num: '81',  title: 'Beyond the blitz..' },
+    { file: 'pdf82.pdf',  num: '82',  title: 'Journal Article 82' },
+    { file: 'pdf83.pdf',  num: '83',  title: 'Journal Article 83' },
+    { file: 'pdf84.pdf',  num: '84',  title: 'Journal Article 84' },
+    { file: 'pdf85.pdf',  num: '85',  title: 'Fraudulent practices ... ' },
+    { file: 'pdf86.pdf',  num: '86',  title: 'Corruption...' },
+    { file: 'pdf87.pdf',  num: '87',  title: 'Journal Article 87' },
+    { file: 'pdf88.pdf',  num: '88',  title: 'Journal Article 88' },
+    { file: 'pdf89.pdf',  num: '89',  title: 'Journal Article 89' },
+    { file: 'pdf90.pdf',  num: '90',  title: 'The space, script ...' },
+    { file: 'pdf91.pdf',  num: '91',  title: 'Gender, gaze ...' },
+    { file: 'pdf92.pdf',  num: '92',  title: 'Pastoral ethics ...' },
+    { file: 'pdf93.pdf',  num: '93',  title: 'Tourist potential .. ' },
+    { file: 'pdf94.pdf',  num: '94',  title: 'Control ...' },
+    { file: 'pdf95.pdf',  num: '95',  title: 'Journal Article 95' },
+    { file: 'pdf96.pdf',  num: '96',  title: 'Evaluating audience...' },
+    { file: 'pdf97.pdf',  num: '97',  title: 'Theatre of people ... ' },
+    { file: 'pdf98.pdf',  num: '98',  title: 'DEATH AND THE DIMENSIONS OF HONOUR IN BARCLAYS ' },
+    { file: 'pdf99.pdf',  num: '99',  title: 'BLASPHEMY ACCUSATIONS AND FREEDOM OF EXPRESSION IN NORTHERN' },
+    { file: 'pdf100.pdf', num: '100', title: 'HYPONYMIC PATTERNS AND CULTURAL SIGNIFICANCE IN ELECHI' },
+    { file: 'pdf101.pdf', num: '101', title: 'NARRATIVE SIGNIFICANCE OF SPECIAL EFFECTS IN CHIDI, NKEM' },
+    { file: 'pdf102.pdf', num: '102', title: 'PORTRAYAL OF FEMALE VICTIMS OF CRIMES IN SELECTED' },
+    { file: 'pdf103.pdf', num: '103', title: 'EV ALUATING THE DISTINCTIVE FEATURES OF THE OKI SOCIAL' },
+    { file: 'pdf104.pdf', num: '104', title: 'MASQUERADE AS BEING, NOT DRESSING: RE-THINKING “COSTUME” IN' },
+    { file: 'pdf105.pdf', num: '105', title: 'THE CONUNDRUMS OF ARTS COUNCILS ADMINISTRATION IN NIGERIA' },
+    { file: 'pdf106.pdf', num: '106', title: 'THE QUANDARY OF COMMERCIAL SEX WORKERS: AN EXCURSION INTO' },
+    { file: 'pdf107.pdf', num: '107', title: 'LITERATURE AND CINEMATOGRAPHY: A PRACTICE OF SCREENING THE' },
+    { file: 'pdf108.pdf', num: '108', title: 'THE LANGUAGE OF ADVERTISING IN GUARDIAN AND V ANGUARD' },
+    { file: 'pdf109.pdf', num: '109', title: 'IMPACT OF MOBILE CINEMATOGRAPHY IN MODERN FILMMAKING IN' },
+    { file: 'pdf110.pdf', num: '110', title: 'THE LANGUAGE OF POWER IN AFRICAN SPIRITUAL NARRATIVES: A' },
+    { file: 'pdf111.pdf', num: '111', title: 'SEMIOTIC SYMBOLS AND COMMUNICATION: PALM FRONDS IN' },
+    { file: 'pdf112.pdf', num: '112', title: 'SILENCE AND SEMIOTICS AS EFFECTIVE COMMUNICATION STRATEGIES' },
+    { file: 'pdf113.pdf', num: '113', title: 'GENDER, MARKETS, AND ECONOMIC AGENCIES IN WEST AFRICA' },
+    { file: 'pdf114.pdf', num: '114', title: 'RURAL EDUCATION AND DEVELOPMENT THROUGH COMMUNITY' },
+    { file: 'pdf115.pdf', num: '115', title: 'DIRECTING SHADOW THEATRE IN NIGERIA: VISUAL DRAMATURGY AND' },
+    { file: 'pdf116.pdf', num: '116', title: 'IMPACT OF STRUCTURAL ORGANISATION ON MEANING REALISATION IN' },
+    { file: 'pdf117.pdf', num: '117', title: 'A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN' },
+    { file: 'pdf118.pdf', num: '118', title: 'Journal Article 118' },
+    { file: 'pdf119.pdf', num: '119', title: 'Between Tradition and Translation:' },
+    { file: 'pdf120.pdf', num: '120', title: 'Journal Article 120' },
+    { file: '1.pdf',   num: '121', title: 'SELECTIVE VISIBILITY AND A MODERN APPROACH TO THE STUDY OF STAGE' },
+    { file: '2.pdf',   num: '122', title: 'Journal Article 122' },
+    { file: '3.pdf',   num: '123', title: 'Combating Gender Based Violence in Leadership: Interrogating Patriarchal Cultural' },
+    { file: '4.pdf',   num: '124', title: 'Digital Theatre Convergence as the New Normal: A Performance of Otun Rasheed' },
+    { file: '5.pdf',   num: '125', title: 'Insecurity and Blue Economy: An Appraisal of Rivers State' },
+    { file: '6.pdf',   num: '126', title: 'Insecurity and Blue Economy: An Appraisal of Rivers State' },
+    { file: '7.pdf',   num: '127', title: 'Theatre in Digital Era as a Medium of Cultural Exchange as Exemplified in Selected' },
+    { file: '8.pdf',   num: '128', title: 'Aspects of Nigerian Confessional Poetry: An Overview' },
+    { file: '9.pdf',   num: '129', title: 'Assessing Performance at the Age of Artificial Intelligence and Digital Theatre in Africa' },
+    { file: '10.pdf',  num: '130', title: 'Music as a Tool for Social Bonding: A Survey' },
+    { file: '11.pdf',  num: '131', title: 'Documentary Film as a Tool for Climate Advocacy in the Niger Delta: A Review of' },
+    { file: '12.pdf',  num: '132', title: 'Empowering Future Filmmakers: A Hands-on Workshop Approach to Smartphone' },
+    { file: '13.pdf',  num: '133', title: 'Choreogeometric Dissonance: Leadership Vacuum In Nigeria As Breakdown Of' },
+    { file: '14.pdf',  num: '134', title: 'Music Appreciation in Secondary Schools: Challenges and Prospects' },
+    { file: '15.pdf',  num: '135', title: 'Cinema As A Catalyst For Economic Development In Nigeria' },
+    { file: '16.pdf',  num: '136', title: 'Language Shift and Extinction: The Paradigm of Ikwerre in Nigeria' },
+    { file: '17.pdf',  num: '137', title: 'Promotion And Preservation Of The Ijaw Culture Through Jide Jblaze Oyegbile' },
+    { file: '18.pdf',  num: '138', title: 'Theatricality and Cinematic Space in Yoruba Epic Film: A Study of Jagun Jagun' },
+    { file: '19.pdf',  num: '139', title: 'Jeta Amata Black November Response To The Niger Delta Question' },
+    { file: '20.pdf',  num: '140', title: 'Examination Of Male Abuse In Selected Nollywood Films' },
+    { file: '21.pdf',  num: '141', title: 'The Catalytic Role Of Film Festivals In The Growth Of Nollywood' },
+    { file: '22.pdf',  num: '142', title: 'Performing Nationhood: Calabar, Festival Of Unity 1969, And Nigeria' },
+    { file: '23.pdf',  num: '143', title: 'The Role of Government Policies in Controlling Environmental Degradation' },
+    { file: '24.pdf',  num: '144', title: 'Contemporary Trends In Nollywood Filmmaking And The Emergence Of A New' },
+    { file: '25.pdf',  num: '145', title: 'Significance of African Music as a Tool for National Development: Conceptual' },
+    { file: '26.pdf',  num: '146', title: 'Dignity, Stewardship, And Accountability In Eziwho Emenike Azunwo' },
+    { file: '27.pdf',  num: '147', title: 'JABOUT THE AUTHORS HUB' },
+    { file: '28.pdf',  num: '148', title: 'An Intersemiotic Analysis Of Language And Gesture In Early Years Classroom' },
+    { file: '29.pdf',  num: '149', title: 'Totemic Symbolism And The Representation Of Deities In The Ritual Performance' },
+    { file: '30.pdf',  num: '150', title: 'Aesthetics Of Njingkook: Mupun Storytelling In The Digital Age' },
+    { file: '31.pdf',  num: '151', title: 'Reportage of Socio-Economic Insecurity: A Comparative Analysis of Government and' },
+    { file: '32.pdf',  num: '152', title: 'Gender And Participation In Nigerian Masquerade Traditions: Evidence From' },
+    { file: '33.pdf',  num: '153', title: 'THE ART OF ACTING: CRAFT, CALLING, AND CONSECRATION' },
+    { file: '34.pdf',  num: '154', title: 'ABOUT THE AUTHORS HUB' },
+    { file: '35.pdf',  num: '155', title: 'A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN' },
+  ];
+
+  function renderPdfGrid() {
+    const grid = document.getElementById('pdfGrid');
+    if (!grid) return;
+    grid.innerHTML = pdfArticles.map(({ file, num, title }) => {
+      const shortTitle = truncateTitle(title);
+      return `
+        <a class="pdf-item reveal" href="${file}" target="_blank" rel="noopener" title="${title}">
+          <div class="pdf-card-top">
+            <div class="pdf-icon"><i class="ti ti-file-type-pdf" aria-hidden="true"></i></div>
+            <span class="pdf-num">Article ${num}</span>
+          </div>
+          <div class="pdf-card-body">
+            <span class="pdf-title">${shortTitle}</span>
+          </div>
+          <div class="pdf-card-bottom">
+            <span class="pdf-action">Open PDF <i class="ti ti-external-link" aria-hidden="true"></i></span>
+          </div>
+        </a>`;
+    }).join('');
+  }
+
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + id);
@@ -716,6 +799,7 @@
     btn.style.color = 'var(--black)';
     setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.style.color = ''; }, 3000);
   }
+  renderPdfGrid();
   initReveal();
 </script>
 </body>
