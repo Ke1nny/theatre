@@ -7,14 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #0a0a0a;
-      --white: #f5f4f0;
-      --accent: #c8b89a;
-      --mid: #888;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
-    }
+    :root { --black: #0a0a0a; --white: #f5f4f0; --accent: #c8b89a; --mid: #888; --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; }
     .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--black); border-bottom: 1px solid #222; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 58px; }
@@ -184,6 +177,16 @@
     .pdf-action { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
     .pdf-action i { font-size: 12px; }
 
+    /* ── BOOK LAUNCH VIDEOS ── */
+    .vid-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 3rem; }
+    .vid-card { background: var(--white); border: 1px solid #e0ddd7; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; overflow: hidden; }
+    .vid-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(10,10,10,0.08); }
+    .vid-frame { aspect-ratio: 16/9; background: var(--black); }
+    .vid-frame video { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .vid-meta { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-top: 1px solid #e0ddd7; }
+    .vid-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; }
+    .vid-tag { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -206,6 +209,7 @@
       .gallery-header { padding: 3rem 1.5rem 2rem; }
       .gallery-grid { padding: 1.5rem; grid-template-columns: 1fr 1fr; gap: 1rem; }
       .gallery-item.wide { grid-column: span 2; }
+      .vid-grid { padding: 1.5rem; grid-template-columns: 1fr; }
       .pub-intro-note { margin: 0 1.5rem; }
       .contact-grid-wrap { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; }
@@ -241,6 +245,7 @@
       <li><a href="#" data-page="awards">Awards</a></li>
       <li><a href="#" data-page="gallery">Gallery</a></li>
       <li><a href="#" data-page="publication">Publication</a></li>
+      <li><a href="#" data-page="booklaunch">Book Launch</a></li>
       <li><a href="#" data-page="contact">Contact</a></li>
     </ul>
   </nav>
@@ -257,6 +262,7 @@
   <a href="#" data-page="awards">Awards</a>
   <a href="#" data-page="gallery">Gallery</a>
   <a href="#" data-page="publication">Publication</a>
+  <a href="#" data-page="booklaunch">Book Launch</a>
   <a href="#" data-page="contact">Contact</a>
 </div>
 
@@ -398,7 +404,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div><div class="footer-brand-name">Dr. Eziwho Emenike Azunwo</div><div class="footer-brand-aka">"The Academic Rabbi"</div><p class="footer-tagline">A luminary in Nigerian theatre — playwright, critic, theorist, and dedicated advocate for social change through the arts.</p></div>
-      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="booklaunch">Book Launch</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
       <div><div class="footer-col-title">Online</div><ul class="footer-links"><li><a href="https://www.academia.edu/upgrade?feature=searchm&trigger=mentions_drip_dept_univ">Academia.edu</a></li><li><a href="https://www.researchgate.net/profile/Eziwho-Azunwo?ev=hdr_xprf">ResearchGate</a></li><li><a href="https://scholar.google.com/citations?user=tkdIJV8AAAAJ&hl=en">Google Scholar</a></li></ul></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><span class="footer-contact-label">Institution</span><span class="footer-contact-value">Rivers State University</span></div><div class="footer-contact-line"><span class="footer-contact-label">Phone</span><span class="footer-contact-value"><a href="tel:+2348063733829" style="color:inherit;text-decoration:none;">+234 806 373 3829</a></span></div></div>
     </div>
@@ -433,7 +439,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div><div class="footer-brand-name">Dr. Eziwho Emenike Azunwo</div><div class="footer-brand-aka">"The Academic Rabbi"</div><p class="footer-tagline">A luminary in Nigerian theatre — playwright, critic, theorist, and dedicated advocate for social change through the arts.</p></div>
-      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="booklaunch">Book Launch</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
       <div><div class="footer-col-title">Online</div><ul class="footer-links"><li><a href="https://www.academia.edu/upgrade?feature=searchm&trigger=mentions_drip_dept_univ">Academia.edu</a></li><li><a href="https://www.researchgate.net/profile/Eziwho-Azunwo?ev=hdr_xprf">ResearchGate</a></li><li><a href="https://scholar.google.com/citations?user=tkdIJV8AAAAJ&hl=en">Google Scholar</a></li></ul></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><span class="footer-contact-label">Institution</span><span class="footer-contact-value">Rivers State University</span></div><div class="footer-contact-line"><span class="footer-contact-label">Phone</span><span class="footer-contact-value"><a href="tel:+2348063733829" style="color:inherit;text-decoration:none;">+234 806 373 3829</a></span></div></div>
     </div>
@@ -485,16 +491,13 @@
     <div class="gallery-item tall reveal" onclick="openLightbox(this)"><img src="15.jpeg" alt="Published Work 15"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XV</div></div></div></div>
     <div class="gallery-item square reveal" onclick="openLightbox(this)"><img src="16.jpeg" alt="Published Work 16"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVI</div></div></div></div>
     <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="17.jpeg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
-        <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="reason.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="reason.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
     <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="go.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
     <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="tight.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
     <div class="gallery-item wide reveal" onclick="openLightbox(this)"><img src="ancestral.jpg" alt="Published Work 17"/><div class="gallery-overlay"><div class="gallery-info"><div class="gallery-cat">Published Play</div><div class="gallery-title">Work XVII</div></div></div></div>
-
   </div>
 
-  <!-- ═══════════════════════════════════════════════════
-       PDF JOURNAL ARTICLES — pdf1.pdf through pdf50.pdf
-       ═══════════════════════════════════════════════════ -->
+  <!-- PDF JOURNAL ARTICLES -->
   <div class="pdf-section-wrap">
     <div style="padding: 4rem 3rem 1.5rem;">
       <div class="section-label reveal">Peer-Reviewed Scholarship</div>
@@ -503,12 +506,33 @@
     </div>
     <div class="pdf-grid" id="pdfGrid"></div>
   </div>
-  <!-- ═══════════════════════════════════════════════════ -->
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div><div class="footer-brand-name">Dr. Eziwho Emenike Azunwo</div><div class="footer-brand-aka">"The Academic Rabbi"</div><p class="footer-tagline">A luminary in Nigerian theatre — playwright, critic, theorist, and dedicated advocate for social change through the arts.</p></div>
-      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="booklaunch">Book Launch</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Online</div><ul class="footer-links"><li><a href="https://www.academia.edu/upgrade?feature=searchm&trigger=mentions_drip_dept_univ">Academia.edu</a></li><li><a href="https://www.researchgate.net/profile/Eziwho-Azunwo?ev=hdr_xprf">ResearchGate</a></li><li><a href="https://scholar.google.com/citations?user=tkdIJV8AAAAJ&hl=en">Google Scholar</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><span class="footer-contact-label">Institution</span><span class="footer-contact-value">Rivers State University</span></div><div class="footer-contact-line"><span class="footer-contact-label">Phone</span><span class="footer-contact-value"><a href="tel:+2348063733829" style="color:inherit;text-decoration:none;">+234 806 373 3829</a></span></div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Dr. Eziwho Emenike Azunwo. All rights reserved.</span><div class="footer-bottom-right"><a href="#">The Academic Rabbi</a><a href="#">Port Harcourt, Nigeria</a></div></div>
+  </footer>
+</div>
+
+<!-- BOOK LAUNCH -->
+<div id="page-booklaunch" class="page">
+  <div class="gallery-header">
+    <div class="section-label reveal">Book Launch</div>
+    <h2 class="section-title reveal">Moments from the <em>launch.</em></h2>
+  </div>
+  <div class="vid-grid">
+    <div class="vid-card reveal"><div class="vid-frame"><video controls playsinline preload="metadata" src="vid1.mp4"></video></div><div class="vid-meta"><span class="vid-title">Vid 1</span><span class="vid-tag">Book Launch</span></div></div>
+    <div class="vid-card reveal"><div class="vid-frame"><video controls playsinline preload="metadata" src="vid2.mp4"></video></div><div class="vid-meta"><span class="vid-title">Vid 2</span><span class="vid-tag">Book Launch</span></div></div>
+    <div class="vid-card reveal"><div class="vid-frame"><video controls playsinline preload="metadata" src="vid3.mp4"></video></div><div class="vid-meta"><span class="vid-title">Vid 3</span><span class="vid-tag">Book Launch</span></div></div>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><div class="footer-brand-name">Dr. Eziwho Emenike Azunwo</div><div class="footer-brand-aka">"The Academic Rabbi"</div><p class="footer-tagline">A luminary in Nigerian theatre — playwright, critic, theorist, and dedicated advocate for social change through the arts.</p></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="booklaunch">Book Launch</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
       <div><div class="footer-col-title">Online</div><ul class="footer-links"><li><a href="https://www.academia.edu/upgrade?feature=searchm&trigger=mentions_drip_dept_univ">Academia.edu</a></li><li><a href="https://www.researchgate.net/profile/Eziwho-Azunwo?ev=hdr_xprf">ResearchGate</a></li><li><a href="https://scholar.google.com/citations?user=tkdIJV8AAAAJ&hl=en">Google Scholar</a></li></ul></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><span class="footer-contact-label">Institution</span><span class="footer-contact-value">Rivers State University</span></div><div class="footer-contact-line"><span class="footer-contact-label">Phone</span><span class="footer-contact-value"><a href="tel:+2348063733829" style="color:inherit;text-decoration:none;">+234 806 373 3829</a></span></div></div>
     </div>
@@ -542,7 +566,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div><div class="footer-brand-name">Dr. Eziwho Emenike Azunwo</div><div class="footer-brand-aka">"The Academic Rabbi"</div><p class="footer-tagline">A luminary in Nigerian theatre — playwright, critic, theorist, and dedicated advocate for social change through the arts.</p></div>
-      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">About</a></li><li><a href="#" data-page="awards">Awards</a></li><li><a href="#" data-page="gallery">Gallery</a></li><li><a href="#" data-page="publication">Publication</a></li><li><a href="#" data-page="booklaunch">Book Launch</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div>
       <div><div class="footer-col-title">Online</div><ul class="footer-links"><li><a href="https://www.academia.edu/upgrade?feature=searchm&trigger=mentions_drip_dept_univ">Academia.edu</a></li><li><a href="https://www.researchgate.net/profile/Eziwho-Azunwo?ev=hdr_xprf">ResearchGate</a></li><li><a href="https://scholar.google.com/citations?user=tkdIJV8AAAAJ&hl=en">Google Scholar</a></li></ul></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><span class="footer-contact-label">Institution</span><span class="footer-contact-value">Rivers State University</span></div><div class="footer-contact-line"><span class="footer-contact-label">Phone</span><span class="footer-contact-value"><a href="tel:+2348063733829" style="color:inherit;text-decoration:none;">+234 806 373 3829</a></span></div></div>
     </div>
@@ -558,178 +582,174 @@
 </div>
 
 <script>
-  // Build the PDF article cards. Titles longer than 20 characters are
-  // truncated with an ellipsis (both visually via CSS text-overflow and
-  // in the DOM string itself, so hover/title tooltips and any text
-  // extraction also see the shortened form).
   const PDF_TITLE_LIMIT = 20;
   function truncateTitle(title) {
-    if (title.length > PDF_TITLE_LIMIT) {
-      return title.slice(0, PDF_TITLE_LIMIT).trimEnd() + '…';
-    }
+    if (title.length > PDF_TITLE_LIMIT) { return title.slice(0, PDF_TITLE_LIMIT).trimEnd() + '…'; }
     return title;
   }
-
-  // Edit the "title" value on each line below to set the real article title.
-  // Titles longer than 20 characters will automatically truncate with "…"
-  // (full title still shows on hover via the tooltip).
+  // Edit the title (3rd value) on each line to set the real article title.
   const pdfArticles = [
-    { file: 'pdf1.pdf',   num: '01',  title: 'Elegbakna Journal of Theatre and Film Studies Vol. 6' },
-    { file: 'pdf2.pdf',   num: '02',  title: 'Journal Article 2PAINTING WITH LIGHTS: THE ART OF CREATIVE STORYTELLING THROUGH CINEMATOGRAPHY' },
-    { file: 'pdf3.pdf',   num: '03',  title: 'TOURISM POTENTIALS OF THE OGBIA ODEMIMOM AND OBURUMADU SOCIAL MASQUERADES' },
-    { file: 'pdf4.pdf',   num: '04',  title: 'FROM WARTIME ALLIES TO PEACETIME RIV ALS: NATIONAL INTERESTS AND THE NIGERIA–CAMEROON CONFLICT OVER BAKASSI' },
-    { file: 'pdf5.pdf',   num: '05',  title: 'ENVIRONMENTAL STORYTELLING: A PRAGMATIC ANALYSIS OF ECOLOGICAL MESSAGES IN CHILDRENS LITERATURE' },
-    { file: 'pdf6.pdf',   num: '06',  title: 'TRADITIONAL YORÙBÁ CRIME CONTROL MECHANISM IN ANÍKÚLÁPÓ' },
-    { file: 'pdf7.pdf',   num: '07',  title: 'THE EVOLUTION OF WOMENS ECONOMIC ROLES IN NIGERIA: AHISTORICAL ANALYSIS FROM PRECOLONIAL TO MODERN TIMES' },
-    { file: 'pdf8.pdf',   num: '08',  title: 'FILM AND THE COPYRIGHT ACT OF NIGERIA: AN EV ALUATION OF' },
-    { file: 'pdf9.pdf',   num: '09',  title: 'REFRAMING WOMANHOOD IN CONTEMPORARY NIGERIAN CINEMA:' },
-    { file: 'pdf10.pdf',  num: '10',  title: 'PUBLICITY MANAGEMENT IN SELECTED CINEMA HOUSES IN LAGOS AND' },
-    { file: 'pdf11.pdf',  num: '11',  title: 'THE LIBERIAN CIVIL WAR (1989–2003): CAUSES, DYNAMICS,' },
-    { file: 'pdf12.pdf',  num: '12',  title: 'INTEGRATING WORK-BASED LEARNING INTO ADULT EDUCATION' },
-    { file: 'pdf13.pdf',  num: '13',  title: 'A DISCOURSE ON THE OGBIA PEOPLE AND THE RELEV ANCE OF THEIR' },
-    { file: 'pdf14.pdf',  num: '14',  title: 'MUSIC, SACRED PRACTICE, AND SOCIAL MEANING IN THE IGOGO' },
-    { file: 'pdf15.pdf',  num: '15',  title: 'IMPACT OF CUSTOMS ANTI-SMUGGLING OPERATIONS AT SEME BORDER,' },
-    { file: 'pdf16.pdf',  num: '16',  title: 'JCORRECTIONAL PROGRAMME FOR INMATES AND REFORMATORY' },
-    { file: 'pdf17.pdf',  num: '17',  title: 'A CLOSEUP ON GENDER ISSUES IN EDDY YOUNGS KASANOVA' },
-    { file: 'pdf18.pdf',  num: '18',  title: 'STRATEGIC INTERACTION AND IMPERIAL EXPANSION: A GAME-' },
-    { file: 'pdf19.pdf',  num: '19',  title: 'THE GENZEE BADIE AND AFRO-POP MUSIC PERFORMANCE AGAINST' },
-    { file: 'pdf20.pdf',  num: '20',  title: 'GENDER POLITICS IN MARIAMA BAS SO LONG A LETTER' },
-    { file: 'pdf21.pdf',  num: '21',  title: 'ENHANCING THE TRIFOCAL SYNERGY OF ENGLISH, ICT, AND EDUCATION' },
-    { file: 'pdf22.pdf',  num: '22',  title: 'ADOPTION AND USE OF ARTIFICIAL INTELLIGENCE FOR JOURNALISM' },
-    { file: 'pdf23.pdf',  num: '23',  title: 'SEXUAL ABUSE AND FEMALE SUBJUGATION IN AMMA DARKOS FACELESS' },
-    { file: 'pdf24.pdf',  num: '24',  title: 'A LINGUISTIC-STYLISTIC EXAMINATION OF DISCOURSE ENACTMENT AND' },
-    { file: 'pdf25.pdf',  num: '25',  title: 'SYNTAX AS IDEOLOGY: THETA ROLE ASSIGNMENT AND OPPRESSION IN' },
-    { file: 'pdf26.pdf',  num: '26',  title: 'GHETTOS OF RESISTANCE: GANGSTERISM AS CULTURAL PROTEST IN' },
-    { file: 'pdf27.pdf',  num: '27',  title: 'CINEMATIC REIMAGING OF AFRICAN HEROINES: CONVERSATIONS WITH' },
-    { file: 'pdf28.pdf',  num: '28',  title: 'HUMANITARIAN IMPLICATION OF TERRORPRENEURSHIP: A CASE STUDY' },
-    { file: 'pdf29.pdf',  num: '29',  title: 'SAME STROKES FOR DIFFERENT FOLKS: LESSONS FOR THE LED IN' },
-    { file: 'pdf30.pdf',  num: '30',  title: 'UNLOCKING THE BENEFITS OF ARTIFICIAL INTELLIGENCE (AI) FOR' },
-    { file: 'pdf31.pdf',  num: '31',  title: 'Irony And Tension: A New Critical Reading Of Azunwos Rabbi' },
-    { file: 'pdf32.pdf',  num: '32',  title: 'Managing Radio for Development: An Analysis of Radio Bayelsa' },
-    { file: 'pdf33.pdf',  num: '33',  title: 'The Playwright As A Challenger of Bad Values in Society:' },
-    { file: 'pdf34.pdf',  num: '34',  title: 'A Contextual Reading of Justice In Ahmed Yerimas Hard Ground And Emenike' },
-    { file: 'pdf35.pdf',  num: '35',  title: 'The Commodification of Women In Nigerian Popular Music:' },
-    { file: 'pdf36.pdf',  num: '36',  title: 'Feminist Consciousness and Gender Negotiation in Nollywood: A Comparative Study' },
-    { file: 'pdf37.pdf',  num: '37',  title: 'Language Play and Comic Identity: Nigerian Pidgin in Jenifa Diary' },
-    { file: 'pdf38.pdf',  num: '38',  title: 'The Intersection of Gender and Power Dynamics in Emenike Azunwos Apogee' },
-    { file: 'pdf39.pdf',  num: '39',  title: 'An Analysis of Political Power Themes In Kemi Adetiba King of Boys' },
-    { file: 'pdf40.pdf',  num: '40',  title: 'The Theatre Production Fúnmiláyò Ransome Kútì: A critique of' },
-    { file: 'pdf41.pdf',  num: '41',  title: 'The Biographic and the Objective: A Reflection on the Historical and Metaphysical' },
-    { file: 'pdf42.pdf',  num: '42',  title: 'Political Portrayal of Women In Selected Nigerian Films:' },
-    { file: 'pdf43.pdf',  num: '43',  title: 'Digital Transformations in Nollywood: Exploring Production,' },
-    { file: 'pdf44.pdf',  num: '44',  title: 'Elements of Folkism in “Banuso” song by Olawale Ashimi' },
-    { file: 'pdf45.pdf',  num: '45',  title: 'Interrogating the Applicability of Henri Fayols Administrative Principles to the' },
-    { file: 'pdf46.pdf',  num: '46',  title: 'Semiotic Signs In Everyday Use For Communicative Purposes' },
-    { file: 'pdf47.pdf',  num: '47',  title: 'The Impact of Feasibility Study on Theatre-Entrepreneurship Development in Nigeria' },
-    { file: 'pdf48.pdf',  num: '48',  title: 'Advertising language in Nigeria: The Punch Newspaper Paradigm' },
-    { file: 'pdf49.pdf',  num: '49',  title: 'Assessing the Contributions of Creative Industries to Economic Growth in Nigeria' },
-    { file: 'pdf50.pdf',  num: '50',  title: 'Journal Article 50' },
-    { file: 'pdf51.pdf',  num: '51',  title: 'Journal Article 51' },
-    { file: 'pdf52.pdf',  num: '52',  title: 'Journal Article 52' },
-    { file: 'pdf53.pdf',  num: '53',  title: 'Journal Article 53' },
-    { file: 'pdf54.pdf',  num: '54',  title: ' Comrade and other poem' },
-    { file: 'pdf55.pdf',  num: '55',  title: 'Selective visibility' },
-    { file: 'pdf56.pdf',  num: '56',  title: 'Beyond the blitz' },
-    { file: 'pdf57.pdf',  num: '57',  title: 'Rnyinya ' },
-    { file: 'pdf58.pdf',  num: '58',  title: 'Broke Salvation' },
-    { file: 'pdf59.pdf',  num: '59',  title: 'Eco-Marx..' },
-    { file: 'pdf60.pdf',  num: '60',  title: 'Fraudulent practices' },
-    { file: 'pdf61.pdf',  num: '61',  title: 'Corruption and security' },
-    { file: 'pdf62.pdf',  num: '62',  title: 'Gendered pragma..' },
-    { file: 'pdf63.pdf',  num: '63',  title: 'Stage, sound and ..' },
-    { file: 'pdf64.pdf',  num: '64',  title: 'Resurgence of wood' },
-    { file: 'pdf65.pdf',  num: '65',  title: 'Gender, Gaze ..' },
-    { file: 'pdf66.pdf',  num: '66',  title: 'Tourist potential' },
-    { file: 'pdf67.pdf',  num: '67',  title: 'Journal Article 67' },
-    { file: 'pdf68.pdf',  num: '68',  title: 'Control, restriction.' },
-    { file: 'pdf69.pdf',  num: '69',  title: 'Pragmatic ....' },
-    { file: 'pdf70.pdf',  num: '70',  title: 'Towards a viable ... ' },
-    { file: 'pdf71.pdf',  num: '71',  title: 'Closed - class system ..' },
-    { file: 'pdf72.pdf',  num: '72',  title: 'Towards a viable ...' },
-    { file: 'pdf73.pdf',  num: '73',  title: 'closed-class ...' },
-    { file: 'pdf74.pdf',  num: '74',  title: 'Assessing film ... ' },
-    { file: 'pdf75.pdf',  num: '75',  title: 'The evolution of film ...' },
-    { file: 'pdf76.pdf',  num: '76',  title: 'semiotics in grammar' },
-    { file: 'pdf77.pdf',  num: '77',  title: 'Digital marketing practices ..' },
-    { file: 'pdf78.pdf',  num: '78',  title: 'A critical analysis ...' },
-    { file: 'pdf79.pdf',  num: '79',  title: 'Comradeship and other poems' },
-    { file: 'pdf80.pdf',  num: '80',  title: 'Selective visibility .. ' },
-    { file: 'pdf81.pdf',  num: '81',  title: 'Beyond the blitz..' },
-    { file: 'pdf82.pdf',  num: '82',  title: 'Journal Article 82' },
-    { file: 'pdf83.pdf',  num: '83',  title: 'Journal Article 83' },
-    { file: 'pdf84.pdf',  num: '84',  title: 'Journal Article 84' },
-    { file: 'pdf85.pdf',  num: '85',  title: 'Fraudulent practices ... ' },
-    { file: 'pdf86.pdf',  num: '86',  title: 'Corruption...' },
-    { file: 'pdf87.pdf',  num: '87',  title: 'Journal Article 87' },
-    { file: 'pdf88.pdf',  num: '88',  title: 'Journal Article 88' },
-    { file: 'pdf89.pdf',  num: '89',  title: 'Journal Article 89' },
-    { file: 'pdf90.pdf',  num: '90',  title: 'The space, script ...' },
-    { file: 'pdf91.pdf',  num: '91',  title: 'Gender, gaze ...' },
-    { file: 'pdf92.pdf',  num: '92',  title: 'Pastoral ethics ...' },
-    { file: 'pdf93.pdf',  num: '93',  title: 'Tourist potential .. ' },
-    { file: 'pdf94.pdf',  num: '94',  title: 'Control ...' },
-    { file: 'pdf95.pdf',  num: '95',  title: 'Journal Article 95' },
-    { file: 'pdf96.pdf',  num: '96',  title: 'Evaluating audience...' },
-    { file: 'pdf97.pdf',  num: '97',  title: 'Theatre of people ... ' },
-    { file: 'pdf98.pdf',  num: '98',  title: 'DEATH AND THE DIMENSIONS OF HONOUR IN BARCLAYS ' },
-    { file: 'pdf99.pdf',  num: '99',  title: 'BLASPHEMY ACCUSATIONS AND FREEDOM OF EXPRESSION IN NORTHERN' },
-    { file: 'pdf100.pdf', num: '100', title: 'HYPONYMIC PATTERNS AND CULTURAL SIGNIFICANCE IN ELECHI' },
-    { file: 'pdf101.pdf', num: '101', title: 'NARRATIVE SIGNIFICANCE OF SPECIAL EFFECTS IN CHIDI, NKEM' },
-    { file: 'pdf102.pdf', num: '102', title: 'PORTRAYAL OF FEMALE VICTIMS OF CRIMES IN SELECTED' },
-    { file: 'pdf103.pdf', num: '103', title: 'EV ALUATING THE DISTINCTIVE FEATURES OF THE OKI SOCIAL' },
-    { file: 'pdf104.pdf', num: '104', title: 'MASQUERADE AS BEING, NOT DRESSING: RE-THINKING “COSTUME” IN' },
-    { file: 'pdf105.pdf', num: '105', title: 'THE CONUNDRUMS OF ARTS COUNCILS ADMINISTRATION IN NIGERIA' },
-    { file: 'pdf106.pdf', num: '106', title: 'THE QUANDARY OF COMMERCIAL SEX WORKERS: AN EXCURSION INTO' },
-    { file: 'pdf107.pdf', num: '107', title: 'LITERATURE AND CINEMATOGRAPHY: A PRACTICE OF SCREENING THE' },
-    { file: 'pdf108.pdf', num: '108', title: 'THE LANGUAGE OF ADVERTISING IN GUARDIAN AND V ANGUARD' },
-    { file: 'pdf109.pdf', num: '109', title: 'IMPACT OF MOBILE CINEMATOGRAPHY IN MODERN FILMMAKING IN' },
-    { file: 'pdf110.pdf', num: '110', title: 'THE LANGUAGE OF POWER IN AFRICAN SPIRITUAL NARRATIVES: A' },
-    { file: 'pdf111.pdf', num: '111', title: 'SEMIOTIC SYMBOLS AND COMMUNICATION: PALM FRONDS IN' },
-    { file: 'pdf112.pdf', num: '112', title: 'SILENCE AND SEMIOTICS AS EFFECTIVE COMMUNICATION STRATEGIES' },
-    { file: 'pdf113.pdf', num: '113', title: 'GENDER, MARKETS, AND ECONOMIC AGENCIES IN WEST AFRICA' },
-    { file: 'pdf114.pdf', num: '114', title: 'RURAL EDUCATION AND DEVELOPMENT THROUGH COMMUNITY' },
-    { file: 'pdf115.pdf', num: '115', title: 'DIRECTING SHADOW THEATRE IN NIGERIA: VISUAL DRAMATURGY AND' },
-    { file: 'pdf116.pdf', num: '116', title: 'IMPACT OF STRUCTURAL ORGANISATION ON MEANING REALISATION IN' },
-    { file: 'pdf117.pdf', num: '117', title: 'A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN' },
-    { file: 'pdf118.pdf', num: '118', title: 'Journal Article 118' },
-    { file: 'pdf119.pdf', num: '119', title: 'Between Tradition and Translation:' },
-    { file: 'pdf120.pdf', num: '120', title: 'Journal Article 120' },
-    { file: '1.pdf',   num: '121', title: 'SELECTIVE VISIBILITY AND A MODERN APPROACH TO THE STUDY OF STAGE' },
-    { file: '2.pdf',   num: '122', title: 'Journal Article 122' },
-    { file: '3.pdf',   num: '123', title: 'Combating Gender Based Violence in Leadership: Interrogating Patriarchal Cultural' },
-    { file: '4.pdf',   num: '124', title: 'Digital Theatre Convergence as the New Normal: A Performance of Otun Rasheed' },
-    { file: '5.pdf',   num: '125', title: 'Insecurity and Blue Economy: An Appraisal of Rivers State' },
-    { file: '6.pdf',   num: '126', title: 'Insecurity and Blue Economy: An Appraisal of Rivers State' },
-    { file: '7.pdf',   num: '127', title: 'Theatre in Digital Era as a Medium of Cultural Exchange as Exemplified in Selected' },
-    { file: '8.pdf',   num: '128', title: 'Aspects of Nigerian Confessional Poetry: An Overview' },
-    { file: '9.pdf',   num: '129', title: 'Assessing Performance at the Age of Artificial Intelligence and Digital Theatre in Africa' },
-    { file: '10.pdf',  num: '130', title: 'Music as a Tool for Social Bonding: A Survey' },
-    { file: '11.pdf',  num: '131', title: 'Documentary Film as a Tool for Climate Advocacy in the Niger Delta: A Review of' },
-    { file: '12.pdf',  num: '132', title: 'Empowering Future Filmmakers: A Hands-on Workshop Approach to Smartphone' },
-    { file: '13.pdf',  num: '133', title: 'Choreogeometric Dissonance: Leadership Vacuum In Nigeria As Breakdown Of' },
-    { file: '14.pdf',  num: '134', title: 'Music Appreciation in Secondary Schools: Challenges and Prospects' },
-    { file: '15.pdf',  num: '135', title: 'Cinema As A Catalyst For Economic Development In Nigeria' },
-    { file: '16.pdf',  num: '136', title: 'Language Shift and Extinction: The Paradigm of Ikwerre in Nigeria' },
-    { file: '17.pdf',  num: '137', title: 'Promotion And Preservation Of The Ijaw Culture Through Jide Jblaze Oyegbile' },
-    { file: '18.pdf',  num: '138', title: 'Theatricality and Cinematic Space in Yoruba Epic Film: A Study of Jagun Jagun' },
-    { file: '19.pdf',  num: '139', title: 'Jeta Amata Black November Response To The Niger Delta Question' },
-    { file: '20.pdf',  num: '140', title: 'Examination Of Male Abuse In Selected Nollywood Films' },
-    { file: '21.pdf',  num: '141', title: 'The Catalytic Role Of Film Festivals In The Growth Of Nollywood' },
-    { file: '22.pdf',  num: '142', title: 'Performing Nationhood: Calabar, Festival Of Unity 1969, And Nigeria' },
-    { file: '23.pdf',  num: '143', title: 'The Role of Government Policies in Controlling Environmental Degradation' },
-    { file: '24.pdf',  num: '144', title: 'Contemporary Trends In Nollywood Filmmaking And The Emergence Of A New' },
-    { file: '25.pdf',  num: '145', title: 'Significance of African Music as a Tool for National Development: Conceptual' },
-    { file: '26.pdf',  num: '146', title: 'Dignity, Stewardship, And Accountability In Eziwho Emenike Azunwo' },
-    { file: '27.pdf',  num: '147', title: 'JABOUT THE AUTHORS HUB' },
-    { file: '28.pdf',  num: '148', title: 'An Intersemiotic Analysis Of Language And Gesture In Early Years Classroom' },
-    { file: '29.pdf',  num: '149', title: 'Totemic Symbolism And The Representation Of Deities In The Ritual Performance' },
-    { file: '30.pdf',  num: '150', title: 'Aesthetics Of Njingkook: Mupun Storytelling In The Digital Age' },
-    { file: '31.pdf',  num: '151', title: 'Reportage of Socio-Economic Insecurity: A Comparative Analysis of Government and' },
-    { file: '32.pdf',  num: '152', title: 'Gender And Participation In Nigerian Masquerade Traditions: Evidence From' },
-    { file: '33.pdf',  num: '153', title: 'THE ART OF ACTING: CRAFT, CALLING, AND CONSECRATION' },
-    { file: '34.pdf',  num: '154', title: 'ABOUT THE AUTHORS HUB' },
-    { file: '35.pdf',  num: '155', title: 'A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN' },
-  ];
+['pdf1.pdf','01','Elegbakna Journal of Theatre and Film Studies Vol. 6'],
+['pdf2.pdf','02','Journal Article 2PAINTING WITH LIGHTS: THE ART OF CREATIVE STORYTELLING THROUGH CINEMATOGRAPHY'],
+['pdf3.pdf','03','TOURISM POTENTIALS OF THE OGBIA ODEMIMOM AND OBURUMADU SOCIAL MASQUERADES'],
+['pdf4.pdf','04','FROM WARTIME ALLIES TO PEACETIME RIV ALS: NATIONAL INTERESTS AND THE NIGERIA–CAMEROON CONFLICT OVER BAKASSI'],
+['pdf5.pdf','05','ENVIRONMENTAL STORYTELLING: A PRAGMATIC ANALYSIS OF ECOLOGICAL MESSAGES IN CHILDRENS LITERATURE'],
+['pdf6.pdf','06','TRADITIONAL YORÙBÁ CRIME CONTROL MECHANISM IN ANÍKÚLÁPÓ'],
+['pdf7.pdf','07','THE EVOLUTION OF WOMENS ECONOMIC ROLES IN NIGERIA: AHISTORICAL ANALYSIS FROM PRECOLONIAL TO MODERN TIMES'],
+['pdf8.pdf','08','FILM AND THE COPYRIGHT ACT OF NIGERIA: AN EV ALUATION OF'],
+['pdf9.pdf','09','REFRAMING WOMANHOOD IN CONTEMPORARY NIGERIAN CINEMA:'],
+['pdf10.pdf','10','PUBLICITY MANAGEMENT IN SELECTED CINEMA HOUSES IN LAGOS AND'],
+['pdf11.pdf','11','THE LIBERIAN CIVIL WAR (1989–2003): CAUSES, DYNAMICS,'],
+['pdf12.pdf','12','INTEGRATING WORK-BASED LEARNING INTO ADULT EDUCATION'],
+['pdf13.pdf','13','A DISCOURSE ON THE OGBIA PEOPLE AND THE RELEV ANCE OF THEIR'],
+['pdf14.pdf','14','MUSIC, SACRED PRACTICE, AND SOCIAL MEANING IN THE IGOGO'],
+['pdf15.pdf','15','IMPACT OF CUSTOMS ANTI-SMUGGLING OPERATIONS AT SEME BORDER,'],
+['pdf16.pdf','16','JCORRECTIONAL PROGRAMME FOR INMATES AND REFORMATORY'],
+['pdf17.pdf','17','A CLOSEUP ON GENDER ISSUES IN EDDY YOUNGS KASANOVA'],
+['pdf18.pdf','18','STRATEGIC INTERACTION AND IMPERIAL EXPANSION: A GAME-'],
+['pdf19.pdf','19','THE GENZEE BADIE AND AFRO-POP MUSIC PERFORMANCE AGAINST'],
+['pdf20.pdf','20','GENDER POLITICS IN MARIAMA BAS SO LONG A LETTER'],
+['pdf21.pdf','21','ENHANCING THE TRIFOCAL SYNERGY OF ENGLISH, ICT, AND EDUCATION'],
+['pdf22.pdf','22','ADOPTION AND USE OF ARTIFICIAL INTELLIGENCE FOR JOURNALISM'],
+['pdf23.pdf','23','SEXUAL ABUSE AND FEMALE SUBJUGATION IN AMMA DARKOS FACELESS'],
+['pdf24.pdf','24','A LINGUISTIC-STYLISTIC EXAMINATION OF DISCOURSE ENACTMENT AND'],
+['pdf25.pdf','25','SYNTAX AS IDEOLOGY: THETA ROLE ASSIGNMENT AND OPPRESSION IN'],
+['pdf26.pdf','26','GHETTOS OF RESISTANCE: GANGSTERISM AS CULTURAL PROTEST IN'],
+['pdf27.pdf','27','CINEMATIC REIMAGING OF AFRICAN HEROINES: CONVERSATIONS WITH'],
+['pdf28.pdf','28','HUMANITARIAN IMPLICATION OF TERRORPRENEURSHIP: A CASE STUDY'],
+['pdf29.pdf','29','SAME STROKES FOR DIFFERENT FOLKS: LESSONS FOR THE LED IN'],
+['pdf30.pdf','30','UNLOCKING THE BENEFITS OF ARTIFICIAL INTELLIGENCE (AI) FOR'],
+['pdf31.pdf','31','Irony And Tension: A New Critical Reading Of Azunwos Rabbi'],
+['pdf32.pdf','32','Managing Radio for Development: An Analysis of Radio Bayelsa'],
+['pdf33.pdf','33','The Playwright As A Challenger of Bad Values in Society:'],
+['pdf34.pdf','34','A Contextual Reading of Justice In Ahmed Yerimas Hard Ground And Emenike'],
+['pdf35.pdf','35','The Commodification of Women In Nigerian Popular Music:'],
+['pdf36.pdf','36','Feminist Consciousness and Gender Negotiation in Nollywood: A Comparative Study'],
+['pdf37.pdf','37','Language Play and Comic Identity: Nigerian Pidgin in Jenifa Diary'],
+['pdf38.pdf','38','The Intersection of Gender and Power Dynamics in Emenike Azunwos Apogee'],
+['pdf39.pdf','39','An Analysis of Political Power Themes In Kemi Adetiba King of Boys'],
+['pdf40.pdf','40','The Theatre Production Fúnmiláyò Ransome Kútì: A critique of'],
+['pdf41.pdf','41','The Biographic and the Objective: A Reflection on the Historical and Metaphysical'],
+['pdf42.pdf','42','Political Portrayal of Women In Selected Nigerian Films:'],
+['pdf43.pdf','43','Digital Transformations in Nollywood: Exploring Production,'],
+['pdf44.pdf','44','Elements of Folkism in “Banuso” song by Olawale Ashimi'],
+['pdf45.pdf','45','Interrogating the Applicability of Henri Fayols Administrative Principles to the'],
+['pdf46.pdf','46','Semiotic Signs In Everyday Use For Communicative Purposes'],
+['pdf47.pdf','47','The Impact of Feasibility Study on Theatre-Entrepreneurship Development in Nigeria'],
+['pdf48.pdf','48','Advertising language in Nigeria: The Punch Newspaper Paradigm'],
+['pdf49.pdf','49','Assessing the Contributions of Creative Industries to Economic Growth in Nigeria'],
+['pdf50.pdf','50','Journal Article 50'],
+['pdf51.pdf','51','Journal Article 51'],
+['pdf52.pdf','52','Journal Article 52'],
+['pdf53.pdf','53','Journal Article 53'],
+['pdf54.pdf','54',' Comrade and other poem'],
+['pdf55.pdf','55','Selective visibility'],
+['pdf56.pdf','56','Beyond the blitz'],
+['pdf57.pdf','57','Rnyinya '],
+['pdf58.pdf','58','Broke Salvation'],
+['pdf59.pdf','59','Eco-Marx..'],
+['pdf60.pdf','60','Fraudulent practices'],
+['pdf61.pdf','61','Corruption and security'],
+['pdf62.pdf','62','Gendered pragma..'],
+['pdf63.pdf','63','Stage, sound and ..'],
+['pdf64.pdf','64','Resurgence of wood'],
+['pdf65.pdf','65','Gender, Gaze ..'],
+['pdf66.pdf','66','Tourist potential'],
+['pdf67.pdf','67','Journal Article 67'],
+['pdf68.pdf','68','Control, restriction.'],
+['pdf69.pdf','69','Pragmatic ....'],
+['pdf70.pdf','70','Towards a viable ... '],
+['pdf71.pdf','71','Closed - class system ..'],
+['pdf72.pdf','72','Towards a viable ...'],
+['pdf73.pdf','73','closed-class ...'],
+['pdf74.pdf','74','Assessing film ... '],
+['pdf75.pdf','75','The evolution of film ...'],
+['pdf76.pdf','76','semiotics in grammar'],
+['pdf77.pdf','77','Digital marketing practices ..'],
+['pdf78.pdf','78','A critical analysis ...'],
+['pdf79.pdf','79','Comradeship and other poems'],
+['pdf80.pdf','80','Selective visibility .. '],
+['pdf81.pdf','81','Beyond the blitz..'],
+['pdf82.pdf','82','Journal Article 82'],
+['pdf83.pdf','83','Journal Article 83'],
+['pdf84.pdf','84','Journal Article 84'],
+['pdf85.pdf','85','Fraudulent practices ... '],
+['pdf86.pdf','86','Corruption...'],
+['pdf87.pdf','87','Journal Article 87'],
+['pdf88.pdf','88','Journal Article 88'],
+['pdf89.pdf','89','Journal Article 89'],
+['pdf90.pdf','90','The space, script ...'],
+['pdf91.pdf','91','Gender, gaze ...'],
+['pdf92.pdf','92','Pastoral ethics ...'],
+['pdf93.pdf','93','Tourist potential .. '],
+['pdf94.pdf','94','Control ...'],
+['pdf95.pdf','95','Journal Article 95'],
+['pdf96.pdf','96','Evaluating audience...'],
+['pdf97.pdf','97','Theatre of people ... '],
+['pdf98.pdf','98','DEATH AND THE DIMENSIONS OF HONOUR IN BARCLAYS '],
+['pdf99.pdf','99','BLASPHEMY ACCUSATIONS AND FREEDOM OF EXPRESSION IN NORTHERN'],
+['pdf100.pdf','100','HYPONYMIC PATTERNS AND CULTURAL SIGNIFICANCE IN ELECHI'],
+['pdf101.pdf','101','NARRATIVE SIGNIFICANCE OF SPECIAL EFFECTS IN CHIDI, NKEM'],
+['pdf102.pdf','102','PORTRAYAL OF FEMALE VICTIMS OF CRIMES IN SELECTED'],
+['pdf103.pdf','103','EV ALUATING THE DISTINCTIVE FEATURES OF THE OKI SOCIAL'],
+['pdf104.pdf','104','MASQUERADE AS BEING, NOT DRESSING: RE-THINKING “COSTUME” IN'],
+['pdf105.pdf','105','THE CONUNDRUMS OF ARTS COUNCILS ADMINISTRATION IN NIGERIA'],
+['pdf106.pdf','106','THE QUANDARY OF COMMERCIAL SEX WORKERS: AN EXCURSION INTO'],
+['pdf107.pdf','107','LITERATURE AND CINEMATOGRAPHY: A PRACTICE OF SCREENING THE'],
+['pdf108.pdf','108','THE LANGUAGE OF ADVERTISING IN GUARDIAN AND V ANGUARD'],
+['pdf109.pdf','109','IMPACT OF MOBILE CINEMATOGRAPHY IN MODERN FILMMAKING IN'],
+['pdf110.pdf','110','THE LANGUAGE OF POWER IN AFRICAN SPIRITUAL NARRATIVES: A'],
+['pdf111.pdf','111','SEMIOTIC SYMBOLS AND COMMUNICATION: PALM FRONDS IN'],
+['pdf112.pdf','112','SILENCE AND SEMIOTICS AS EFFECTIVE COMMUNICATION STRATEGIES'],
+['pdf113.pdf','113','GENDER, MARKETS, AND ECONOMIC AGENCIES IN WEST AFRICA'],
+['pdf114.pdf','114','RURAL EDUCATION AND DEVELOPMENT THROUGH COMMUNITY'],
+['pdf115.pdf','115','DIRECTING SHADOW THEATRE IN NIGERIA: VISUAL DRAMATURGY AND'],
+['pdf116.pdf','116','IMPACT OF STRUCTURAL ORGANISATION ON MEANING REALISATION IN'],
+['pdf117.pdf','117','A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN'],
+['pdf118.pdf','118','Journal Article 118'],
+['pdf119.pdf','119','Between Tradition and Translation:'],
+['pdf120.pdf','120','Journal Article 120'],
+['1.pdf','121','SELECTIVE VISIBILITY AND A MODERN APPROACH TO THE STUDY OF STAGE'],
+['2.pdf','122','Journal Article 122'],
+['3.pdf','123','Combating Gender Based Violence in Leadership: Interrogating Patriarchal Cultural'],
+['4.pdf','124','Digital Theatre Convergence as the New Normal: A Performance of Otun Rasheed'],
+['5.pdf','125','Insecurity and Blue Economy: An Appraisal of Rivers State'],
+['6.pdf','126','Insecurity and Blue Economy: An Appraisal of Rivers State'],
+['7.pdf','127','Theatre in Digital Era as a Medium of Cultural Exchange as Exemplified in Selected'],
+['8.pdf','128','Aspects of Nigerian Confessional Poetry: An Overview'],
+['9.pdf','129','Assessing Performance at the Age of Artificial Intelligence and Digital Theatre in Africa'],
+['10.pdf','130','Music as a Tool for Social Bonding: A Survey'],
+['11.pdf','131','Documentary Film as a Tool for Climate Advocacy in the Niger Delta: A Review of'],
+['12.pdf','132','Empowering Future Filmmakers: A Hands-on Workshop Approach to Smartphone'],
+['13.pdf','133','Choreogeometric Dissonance: Leadership Vacuum In Nigeria As Breakdown Of'],
+['14.pdf','134','Music Appreciation in Secondary Schools: Challenges and Prospects'],
+['15.pdf','135','Cinema As A Catalyst For Economic Development In Nigeria'],
+['16.pdf','136','Language Shift and Extinction: The Paradigm of Ikwerre in Nigeria'],
+['17.pdf','137','Promotion And Preservation Of The Ijaw Culture Through Jide Jblaze Oyegbile'],
+['18.pdf','138','Theatricality and Cinematic Space in Yoruba Epic Film: A Study of Jagun Jagun'],
+['19.pdf','139','Jeta Amata Black November Response To The Niger Delta Question'],
+['20.pdf','140','Examination Of Male Abuse In Selected Nollywood Films'],
+['21.pdf','141','The Catalytic Role Of Film Festivals In The Growth Of Nollywood'],
+['22.pdf','142','Performing Nationhood: Calabar, Festival Of Unity 1969, And Nigeria'],
+['23.pdf','143','The Role of Government Policies in Controlling Environmental Degradation'],
+['24.pdf','144','Contemporary Trends In Nollywood Filmmaking And The Emergence Of A New'],
+['25.pdf','145','Significance of African Music as a Tool for National Development: Conceptual'],
+['26.pdf','146','Dignity, Stewardship, And Accountability In Eziwho Emenike Azunwo'],
+['27.pdf','147','JABOUT THE AUTHORS HUB'],
+['28.pdf','148','An Intersemiotic Analysis Of Language And Gesture In Early Years Classroom'],
+['29.pdf','149','Totemic Symbolism And The Representation Of Deities In The Ritual Performance'],
+['30.pdf','150','Aesthetics Of Njingkook: Mupun Storytelling In The Digital Age'],
+['31.pdf','151','Reportage of Socio-Economic Insecurity: A Comparative Analysis of Government and'],
+['32.pdf','152','Gender And Participation In Nigerian Masquerade Traditions: Evidence From'],
+['33.pdf','153','THE ART OF ACTING: CRAFT, CALLING, AND CONSECRATION'],
+['34.pdf','154','ABOUT THE AUTHORS HUB'],
+['35.pdf','155','A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN'],
+['pdf121.pdf','155','A CLOSEUP ON GENDER ISSUES'],
+['PDF122.pdf','155','AN ANALYSIS OF POLITICAL POWER'],
+['pdf123.pdf','155','SELECTIVE VISIBILITY AND A MODERN APPROACH TO THE STUDY OF STAGE'],
+['pdf124.pdf','155','A DISCOURSE ON RELIGIOUS HYPOCRISY AND SEXUAL IMMORALITY IN'],
+['pdf125.pdf','155','THE ART OF ACTING: CRAFT, CALLING, AND CONSECRATION']
+].map(([file, num, title]) => ({ file, num, title }));
 
   function renderPdfGrid() {
     const grid = document.getElementById('pdfGrid');
